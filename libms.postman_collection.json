@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "a7c0e892-fb80-4042-83f0-76e5dfd8338e",
+		"name": "Library Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42580878"
+	},
+	"item": [
+		{
+			"name": "Book Management",
+			"item": [
+				{
+					"name": "retrieve all books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/books?unpaged=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "unpaged",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isbn\": \"0-395-91423-9\",\n    \"title\": \"7 sins\",\n    \"author\": \"Jhon\",\n    \"description\": \"action film about a murderer story\",\n    \"publicationYear\": 1997\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/books"
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve book by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/books/11"
+					},
+					"response": []
+				},
+				{
+					"name": "update Book",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isbn\": \"0-345-91423-9\",\n    \"title\": \"7 sins\",\n    \"author\": \"Jhon\",\n    \"description\": \"action film about a murderer story\",\n    \"publicationYear\": 1997\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/books/1"
+					},
+					"response": []
+				},
+				{
+					"name": "delete book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/books/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patron Management",
+			"item": [
+				{
+					"name": "retrieve all patrons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/patrons?unpaged=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"patrons"
+							],
+							"query": [
+								{
+									"key": "unpaged",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Patron",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Vin Jogh\",\n    \"address\": \"Greek\",\n    \"postNo\": \"456001\",\n    \"city\": \"Mariana\",\n    \"email\": \"VinJogh@gmail.com\",\n    \"phoneNo\": \"932336037\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/patrons"
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve patron by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/patrons/1"
+					},
+					"response": []
+				},
+				{
+					"name": "update Book Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Vin Jogh\",\n    \"address\": \"Greek\",\n    \"postNo\": \"456001\",\n    \"city\": \"Mariana\",\n    \"email\": \"VinJogh@gmail.com\",\n    \"phoneNo\": \"932336037\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/patrons/1"
+					},
+					"response": []
+				},
+				{
+					"name": "delete patron",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/patrons/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrowing Management",
+			"item": [
+				{
+					"name": "borrowing book by patron",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/api/borrow/3/patron/2"
+					},
+					"response": []
+				},
+				{
+					"name": "return book by patron",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@hotmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
